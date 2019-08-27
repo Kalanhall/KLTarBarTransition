@@ -1,0 +1,6 @@
+framework module Pods_KLTarBarTransition_Tests {
+  umbrella header "Pods-KLTarBarTransition_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

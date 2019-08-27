@@ -1,0 +1,16 @@
+PODS:
+  - KLTarBarTransition (1.0.0)
+
+DEPENDENCIES:
+  - KLTarBarTransition (from `../`)
+
+EXTERNAL SOURCES:
+  KLTarBarTransition:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  KLTarBarTransition: 908d92a5fa346b006414ad5b33783cdb7cce9908
+
+PODFILE CHECKSUM: bcaaf85e8b0cd96b3a13c02ef6782f1e28b30c0d
+
+COCOAPODS: 1.8.0.beta.1

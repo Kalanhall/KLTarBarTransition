@@ -17,12 +17,28 @@ KLTarBarTransition is available through [CocoaPods](https://cocoapods.org). To i
 it, simply add the following line to your Podfile:
 
 ```ruby
+ 用法（How to use）：
+ 
+ @implementation TabBarController
+ 
+ - (void)viewDidLoad {
+    [super viewDidLoad];
+    KLTabBarTransitionDelegate *delegate = KLTabBarTransitionDelegate.alloc.init;
+    delegate.tabBarController = self;
+    self.delegate = delegate;
+ }
+ 
+ @end
+
+```
+
+```ruby
 pod 'KLTarBarTransition'
 ```
 
 ## Author
 
-Kalanhall@163.com, Kalanhall@163.com
+Kalanhall, Kalanhall@163.com
 
 ## License
 
