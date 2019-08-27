@@ -4,11 +4,17 @@
  
  Abstract:
  A transition animator that transitions between two view controllers in
-  a tab bar controller by sliding both view controllers in a given
-  direction.
+ a tab bar controller by sliding both view controllers in a given
+ direction.
  */
 
 #import "KLTabBarTransitionAnimator.h"
+
+@interface KLTabBarTransitionAnimator ()
+
+@property (strong, nonatomic) NSLock *lock;
+
+@end
 
 @implementation KLTabBarTransitionAnimator
 
@@ -42,12 +48,16 @@
 //
 - (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext
 {
+    [self.lock lock];
     UIViewController *fromViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
     UIViewController *toViewController = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
     
     UIView *containerView = transitionContext.containerView;
     UIView *fromView;
     UIView *toView;
+    UITabBarController *tvc = fromViewController.tabBarController;
+    tvc.tabBar.userInteractionEnabled = NO;
+    tvc.view.userInteractionEnabled = NO;
     
     // In iOS 8, the viewForKey: method was introduced to get views that the
     // animator manipulates.  This method should be preferred over accessing
@@ -94,7 +104,17 @@
         // passing along the BOOL that indicates whether the transition
         // finished or not.
         [transitionContext completeTransition:!wasCancelled];
+        tvc.tabBar.userInteractionEnabled = YES;
+        tvc.view.userInteractionEnabled = YES;
+        [self.lock unlock];
     }];
+}
+
+- (NSLock *)lock {
+    if (_lock == nil) {
+        _lock = NSLock.alloc.init;
+    }
+    return _lock;
 }
 
 @end
