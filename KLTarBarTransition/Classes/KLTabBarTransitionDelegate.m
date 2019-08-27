@@ -72,11 +72,11 @@ const char * KLTabBarTransitionControllerDelegateAssociationKey = "KLTabBarTrans
 //| ----------------------------------------------------------------------------
 //! Action method for the panGestureRecognizer.
 //
-- (IBAction)panGestureRecognizerDidPan:(UIPanGestureRecognizer*)sender
+- (void)panGestureRecognizerDidPan:(UIPanGestureRecognizer*)sender
 {
     // Do not attempt to begin an interactive transition if one is already
     // ongoing
-    if (self.tabBarController.transitionCoordinator)
+    if (self.tabBarController.transitionCoordinator || self.tabBarController.tabBar.hidden )
         return;
     
     if (sender.state == UIGestureRecognizerStateBegan || sender.state == UIGestureRecognizerStateChanged)
