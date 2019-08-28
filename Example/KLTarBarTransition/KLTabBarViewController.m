@@ -22,6 +22,17 @@
     delegate.tabBarItemScaleEnable = YES;
     delegate.panGestureRecongizerEnable = YES;
     self.delegate = delegate;
+    
+    delegate.tabBarDidSelectViewController = ^(UITabBarController *tabBarController, UIViewController *viewController) {
+        // 选中回调
+        
+    };
+    
+    delegate.tabBarShouldSelectViewController = ^BOOL(UITabBarController *tabBarController, UIViewController *viewController) {
+        // 登陆判断或者其他逻辑
+        
+        return YES;
+    };
 }
 
 @end

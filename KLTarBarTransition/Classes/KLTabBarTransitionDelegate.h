@@ -22,4 +22,8 @@
 // TabBarItem图标缩放动画开关，默认NO
 @property (nonatomic, assign) BOOL tabBarItemScaleEnable;
 
+/** UITabBarControllerDelegate Block */
+@property (nonatomic, copy) void (^tabBarDidSelectViewController)(UITabBarController *tabBarController, UIViewController *viewController);
+@property (nonatomic, copy) BOOL (^tabBarShouldSelectViewController)(UITabBarController *tabBarController, UIViewController *viewController);
+
 @end

@@ -103,11 +103,33 @@ const char * KLTabBarTransitionControllerDelegateAssociationKey = "KLTabBarTrans
     }
 }
 
+- (UIControl *)currentButton
+{
+    NSMutableArray *tabBarButtons = [[NSMutableArray alloc]initWithCapacity:0];
+    for (UIView *tabBarButton in self.tabBarController.tabBar.subviews) {
+        if ([tabBarButton isKindOfClass:NSClassFromString(@"UITabBarButton")]) {
+            [tabBarButtons addObject:tabBarButton];
+        }
+    }
+    return [tabBarButtons objectAtIndex:self.tabBarController.selectedIndex];
+}
+
+- (void)setPanGestureRecongizerEnable:(BOOL)panGestureRecongizerEnable {
+    _panGestureRecongizerEnable = panGestureRecongizerEnable;
+    self.panGestureRecognizer.enabled = self.panGestureRecongizerEnable;
+}
+
+// MARK: - UITabBarControllerDelegate
 - (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController {
+    
+    if (self.tabBarShouldSelectViewController) {
+        return !self.tabBarController.isAnimating && self.tabBarShouldSelectViewController(tabBarController, viewController);
+    }
     return !self.tabBarController.isAnimating;
 }
 
-- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController {
+- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
+{
     self.tabBarController.isAnimating = YES;
     
     if (self.tabBarItemScaleEnable) {
@@ -126,22 +148,10 @@ const char * KLTabBarTransitionControllerDelegateAssociationKey = "KLTabBarTrans
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(self.currentAnimator.transitionTime * 1.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         self.tabBarController.isAnimating = NO;
     });
-}
-
-- (UIControl *)currentButton
-{
-    NSMutableArray *tabBarButtons = [[NSMutableArray alloc]initWithCapacity:0];
-    for (UIView *tabBarButton in self.tabBarController.tabBar.subviews) {
-        if ([tabBarButton isKindOfClass:NSClassFromString(@"UITabBarButton")]) {
-            [tabBarButtons addObject:tabBarButton];
-        }
+    
+    if (self.tabBarDidSelectViewController) {
+        self.tabBarDidSelectViewController(tabBarController, viewController);
     }
-    return [tabBarButtons objectAtIndex:self.tabBarController.selectedIndex];
-}
-
-- (void)setPanGestureRecongizerEnable:(BOOL)panGestureRecongizerEnable {
-    _panGestureRecongizerEnable = panGestureRecongizerEnable;
-    self.panGestureRecognizer.enabled = self.panGestureRecongizerEnable;
 }
 
 @end
