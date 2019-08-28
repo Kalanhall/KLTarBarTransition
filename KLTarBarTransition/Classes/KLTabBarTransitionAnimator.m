@@ -32,7 +32,7 @@
 //| ----------------------------------------------------------------------------
 - (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext
 {
-    return 0.35;
+    return 0.2;
 }
 
 //| ----------------------------------------------------------------------------
@@ -55,9 +55,6 @@
     UIView *containerView = transitionContext.containerView;
     UIView *fromView;
     UIView *toView;
-    UITabBarController *tvc = fromViewController.tabBarController;
-    tvc.tabBar.userInteractionEnabled = NO;
-    tvc.view.userInteractionEnabled = NO;
     
     // In iOS 8, the viewForKey: method was introduced to get views that the
     // animator manipulates.  This method should be preferred over accessing
@@ -93,10 +90,12 @@
     
     NSTimeInterval transitionDuration = [self transitionDuration:transitionContext];
     
+    toView.alpha = 0;
     [UIView animateWithDuration:transitionDuration animations:^{
         fromView.frame = CGRectOffset(fromFrame, fromFrame.size.width * offset.dx,
                                       fromFrame.size.height * offset.dy);
         toView.frame = toFrame;
+        toView.alpha = 1;
         
     } completion:^(BOOL finished) {
         BOOL wasCancelled = [transitionContext transitionWasCancelled];
@@ -104,8 +103,6 @@
         // passing along the BOOL that indicates whether the transition
         // finished or not.
         [transitionContext completeTransition:!wasCancelled];
-        tvc.tabBar.userInteractionEnabled = YES;
-        tvc.view.userInteractionEnabled = YES;
         [self.lock unlock];
     }];
 }
