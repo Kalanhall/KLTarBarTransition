@@ -13,12 +13,13 @@
 
 @interface KLTabBarTransitionDelegate : NSObject <UITabBarControllerDelegate>
 
-//! The UITabBarController instance for which this object is the delegate of.
+// 应用TabBarController实例
 @property (nonatomic, strong) UITabBarController *tabBarController;
-
-//! The gesture recognizer used for driving the interactive transition
-//! between view controllers.  KLTabBarTransitionDelegate installs this
-//! gesture recognizer on the tab bar controller's view.
+// 侧滑手势
 @property (nonatomic, strong, readonly) UIPanGestureRecognizer *panGestureRecongizer;
+// 侧滑手势开关，默认NO
+@property (nonatomic, assign) BOOL panGestureRecongizerEnable;
+// TabBarItem图标缩放动画开关，默认NO
+@property (nonatomic, assign) BOOL tabBarItemScaleEnable;
 
 @end

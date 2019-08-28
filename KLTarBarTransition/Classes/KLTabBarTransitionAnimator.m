@@ -12,6 +12,7 @@
 
 @interface KLTabBarTransitionAnimator ()
 
+@property (nonatomic, assign) NSTimeInterval transitionTime;
 @property (strong, nonatomic) NSLock *lock;
 
 @end
@@ -24,6 +25,7 @@
     self = [self init];
     if (self) {
         _targetEdge = targetEdge;
+        _transitionTime = 0.35;
     }
     return self;
 }
@@ -32,7 +34,7 @@
 //| ----------------------------------------------------------------------------
 - (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext
 {
-    return 0.2;
+    return self.transitionTime;
 }
 
 //| ----------------------------------------------------------------------------

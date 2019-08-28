@@ -18,5 +18,6 @@
 //! slide during the transition.  This must be one of UIRectEdgeLeft or
 //! UIRectEdgeRight.
 @property (nonatomic, readwrite) UIRectEdge targetEdge;
+@property (nonatomic, assign, readonly) NSTimeInterval transitionTime;
 
 @end

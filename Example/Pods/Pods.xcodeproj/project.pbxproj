@@ -22,6 +22,8 @@
 		D0B2C3F9B83A32A2DF1C5C673B8F244F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
 		E32A3D866F57EB298C2A9278AF4BC71D /* KLTarBarTransition-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F3A5B0D2555F04BF490BB3C56D190DC4 /* KLTarBarTransition-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F19FFAB18ABDE2835421B83057197696 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		F6C950FF23162E7100A77974 /* UITabBarController+KLAnimating.h in Headers */ = {isa = PBXBuildFile; fileRef = F6C950FD23162E7100A77974 /* UITabBarController+KLAnimating.h */; };
+		F6C9510023162E7100A77974 /* UITabBarController+KLAnimating.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C950FE23162E7100A77974 /* UITabBarController+KLAnimating.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,27 +44,27 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		08CC9174E06CC586C982EF8CA2D37B6F /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		08CC9174E06CC586C982EF8CA2D37B6F /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		19DF12682EAD1F489C9BCBD2B79602CF /* KLTarBarTransition.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = KLTarBarTransition.xcconfig; sourceTree = "<group>"; };
 		1D8E66B856E9C446CC115639ABB8C976 /* KLTarBarTransition-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "KLTarBarTransition-Info.plist"; sourceTree = "<group>"; };
 		1FF597CF28E3EA440B0E586348981FDC /* Pods-KLTarBarTransition_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-KLTarBarTransition_Tests-Info.plist"; sourceTree = "<group>"; };
 		2EE3245612D72A7EE4E8F68D3C00E8A6 /* KLTarBarTransition.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = KLTarBarTransition.modulemap; sourceTree = "<group>"; };
 		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		3A44F1910AC276A5F619F548F5215386 /* KLTarBarTransition-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "KLTarBarTransition-dummy.m"; sourceTree = "<group>"; };
-		452C9375A5C4973761247C7A435A02D7 /* KLTarBarTransition.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = KLTarBarTransition.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		489F2B2C34730D4B92F04EEB45DFA2E0 /* Pods_KLTarBarTransition_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_KLTarBarTransition_Tests.framework; path = "Pods-KLTarBarTransition_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		52C32275AA2EA1152E1704546B33A468 /* Pods_KLTarBarTransition_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_KLTarBarTransition_Example.framework; path = "Pods-KLTarBarTransition_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		452C9375A5C4973761247C7A435A02D7 /* KLTarBarTransition.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = KLTarBarTransition.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		489F2B2C34730D4B92F04EEB45DFA2E0 /* Pods_KLTarBarTransition_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KLTarBarTransition_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		52C32275AA2EA1152E1704546B33A468 /* Pods_KLTarBarTransition_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KLTarBarTransition_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C69FA56D51B2A039A4DDAFA457AD6FC /* Pods-KLTarBarTransition_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-KLTarBarTransition_Example.modulemap"; sourceTree = "<group>"; };
 		5F8724E068721C9CCB6AA999D09E81A0 /* KLTabBarTransitionDelegate.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KLTabBarTransitionDelegate.m; path = KLTarBarTransition/Classes/KLTabBarTransitionDelegate.m; sourceTree = "<group>"; };
-		630D8F9483DDB4AAA2C4581C73436B20 /* KLTarBarTransition.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = KLTarBarTransition.framework; path = KLTarBarTransition.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		630D8F9483DDB4AAA2C4581C73436B20 /* KLTarBarTransition.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KLTarBarTransition.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		64B92A57948FC9D61FA51280C38539E4 /* Pods-KLTarBarTransition_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-KLTarBarTransition_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		67E895A349437F0F5086C9F2637B60D8 /* KLTabBarTransitionAnimator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KLTabBarTransitionAnimator.m; path = KLTarBarTransition/Classes/KLTabBarTransitionAnimator.m; sourceTree = "<group>"; };
 		6B061D5145872222D32C592488BEE277 /* Pods-KLTarBarTransition_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-KLTarBarTransition_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		80883AF8473969F5DA78084E78DC1791 /* Pods-KLTarBarTransition_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-KLTarBarTransition_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		9231CDDE976657CA37DEC2B9C07AB291 /* KLTarBarTransition-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KLTarBarTransition-prefix.pch"; sourceTree = "<group>"; };
 		9949D880DD30D4ABDDF9A7FFD3C1DCEA /* Pods-KLTarBarTransition_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-KLTarBarTransition_Tests-umbrella.h"; sourceTree = "<group>"; };
-		9B5E9A04EDCC5F2B8BA14A3CC9821B66 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9B5E9A04EDCC5F2B8BA14A3CC9821B66 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9F5B21080800E413B3058010EBBCB6DD /* Pods-KLTarBarTransition_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-KLTarBarTransition_Example-umbrella.h"; sourceTree = "<group>"; };
 		AF872C22FB353259DDF146D46760B141 /* Pods-KLTarBarTransition_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-KLTarBarTransition_Example-Info.plist"; sourceTree = "<group>"; };
 		B1D589FEE2ADCD18037E92C2971B5681 /* Pods-KLTarBarTransition_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-KLTarBarTransition_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
@@ -77,6 +79,8 @@
 		EA0A3F2DD104BB679BEA4E4DD3BDC1FA /* KLTabBarTransitionInteractionController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KLTabBarTransitionInteractionController.h; path = KLTarBarTransition/Classes/KLTabBarTransitionInteractionController.h; sourceTree = "<group>"; };
 		F0214F0FC656862544DA410EADB70955 /* Pods-KLTarBarTransition_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-KLTarBarTransition_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		F3A5B0D2555F04BF490BB3C56D190DC4 /* KLTarBarTransition-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KLTarBarTransition-umbrella.h"; sourceTree = "<group>"; };
+		F6C950FD23162E7100A77974 /* UITabBarController+KLAnimating.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UITabBarController+KLAnimating.h"; path = "KLTarBarTransition/Classes/UITabBarController+KLAnimating.h"; sourceTree = "<group>"; };
+		F6C950FE23162E7100A77974 /* UITabBarController+KLAnimating.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UITabBarController+KLAnimating.m"; path = "KLTarBarTransition/Classes/UITabBarController+KLAnimating.m"; sourceTree = "<group>"; };
 		FC26B2BBF23AA75537A5CD13E6A41B09 /* Pods-KLTarBarTransition_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-KLTarBarTransition_Example-frameworks.sh"; sourceTree = "<group>"; };
 		FC447660612518ABC3F741154BA31684 /* Pods-KLTarBarTransition_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-KLTarBarTransition_Tests.modulemap"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -121,6 +125,8 @@
 		17D401DD88DFDFA3AB719105E1B37A77 /* KLTarBarTransition */ = {
 			isa = PBXGroup;
 			children = (
+				F6C950FD23162E7100A77974 /* UITabBarController+KLAnimating.h */,
+				F6C950FE23162E7100A77974 /* UITabBarController+KLAnimating.m */,
 				B5E70C46A285518B3A209682EC88AAB9 /* KLTabBarTransitionAnimator.h */,
 				67E895A349437F0F5086C9F2637B60D8 /* KLTabBarTransitionAnimator.m */,
 				D05233634F658F5B5F8F9CEAFDBF750A /* KLTabBarTransitionDelegate.h */,
@@ -263,6 +269,7 @@
 				CCF86A96DB9899C0C39A381723302AD5 /* KLTabBarTransitionDelegate.h in Headers */,
 				34BF9808E7B48A1C382246DC52E3E8E3 /* KLTabBarTransitionInteractionController.h in Headers */,
 				E32A3D866F57EB298C2A9278AF4BC71D /* KLTarBarTransition-umbrella.h in Headers */,
+				F6C950FF23162E7100A77974 /* UITabBarController+KLAnimating.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -386,6 +393,7 @@
 				D090DC91518B532434A9587F0FFF515D /* KLTabBarTransitionDelegate.m in Sources */,
 				9044FA6DB46235A04D2BBBB69320C9DD /* KLTabBarTransitionInteractionController.m in Sources */,
 				C559E94B58DE0CF68FCF62D7FA829A94 /* KLTarBarTransition-dummy.m in Sources */,
+				F6C9510023162E7100A77974 /* UITabBarController+KLAnimating.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -543,8 +551,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};
