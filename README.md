@@ -14,12 +14,12 @@
 @implementation TabBarController
 
 - (void)viewDidLoad {
-[super viewDidLoad];
-KLTabBarTransitionDelegate *delegate = KLTabBarTransitionDelegate.alloc.init;
-delegate.tabBarController = self;
-delegate.tabBarItemScaleEnable = YES;       // item缩放动画开关
-delegate.panGestureRecongizerEnable = YES;  // 页面侧滑动画开关，默认当TabBar显示时，页面才可以侧滑
-self.delegate = delegate;
+    [super viewDidLoad];
+    KLTabBarTransitionDelegate *delegate = KLTabBarTransitionDelegate.alloc.init;
+    delegate.tabBarItemScaleEnable = YES;       // item缩放动画开关
+    delegate.panGestureRecongizerEnable = YES;  // 页面侧滑动画开关，默认当TabBar显示时，页面才可以侧滑
+    delegate.tabBarController = self;           // 转场TabBarController
+    self.delegate = delegate;
 }
 
 @end

@@ -14,7 +14,7 @@
 @interface KLTabBarTransitionDelegate : NSObject <UITabBarControllerDelegate>
 
 // 应用TabBarController实例
-@property (nonatomic, strong) UITabBarController *tabBarController;
+@property (nonatomic, weak) UITabBarController *tabBarController;
 // 侧滑手势
 @property (nonatomic, strong, readonly) UIPanGestureRecognizer *panGestureRecongizer;
 // 侧滑手势开关，默认NO

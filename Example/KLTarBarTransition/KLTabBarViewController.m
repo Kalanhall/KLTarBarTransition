@@ -19,8 +19,8 @@
     [super viewDidLoad];
     KLTabBarTransitionDelegate *delegate = KLTabBarTransitionDelegate.alloc.init;
     delegate.tabBarController = self;
-    delegate.panGestureRecongizerEnable = YES;
     delegate.tabBarItemScaleEnable = YES;
+    delegate.panGestureRecongizerEnable = YES;
     self.delegate = delegate;
 }
 

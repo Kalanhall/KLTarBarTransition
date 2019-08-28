@@ -48,8 +48,6 @@ const char * KLTabBarTransitionControllerDelegateAssociationKey = "KLTabBarTrans
 {
     if (_panGestureRecognizer == nil)
         _panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGestureRecognizerDidPan:)];
-        _panGestureRecognizer.enabled = self.panGestureRecongizerEnable;
-    
     return _panGestureRecognizer;
 }
 
@@ -118,7 +116,7 @@ const char * KLTabBarTransitionControllerDelegateAssociationKey = "KLTabBarTrans
                 CAKeyframeAnimation *animation = [CAKeyframeAnimation animation];
                 animation.keyPath = @"transform.scale";
                 animation.values = @[@1.0,@1.1,@0.9,@1.0];
-                animation.duration = 0.35;
+                animation.duration = self.currentAnimator.transitionTime;
                 animation.calculationMode = kCAAnimationCubic;
                 [imageView.layer addAnimation:animation forKey:nil];
             }
@@ -139,6 +137,11 @@ const char * KLTabBarTransitionControllerDelegateAssociationKey = "KLTabBarTrans
         }
     }
     return [tabBarButtons objectAtIndex:self.tabBarController.selectedIndex];
+}
+
+- (void)setPanGestureRecongizerEnable:(BOOL)panGestureRecongizerEnable {
+    _panGestureRecongizerEnable = panGestureRecongizerEnable;
+    self.panGestureRecognizer.enabled = self.panGestureRecongizerEnable;
 }
 
 @end
