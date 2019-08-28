@@ -13,13 +13,11 @@
 @interface KLTabBarTransitionAnimator ()
 
 @property (nonatomic, assign) NSTimeInterval transitionTime;
-@property (strong, nonatomic) NSLock *lock;
 
 @end
 
 @implementation KLTabBarTransitionAnimator
 
-//| ----------------------------------------------------------------------------
 - (instancetype)initWithTargetEdge:(UIRectEdge)targetEdge
 {
     self = [self init];
@@ -31,26 +29,13 @@
 }
 
 
-//| ----------------------------------------------------------------------------
 - (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext
 {
     return self.transitionTime;
 }
 
-//| ----------------------------------------------------------------------------
-//  Custom transitions within a UITabBarController follow the same
-//  conventions as those used for modal presentations.  Your animator will
-//  be given the incoming and outgoing view controllers along with a container
-//  view where both view controller's views will reside.  Your animator is
-//  tasked with animating the incoming view controller's view into the
-//  container view.  The frame of the incoming view controller's view is
-//  is expected to match the value returned from calling
-//  [transitionContext finalFrameForViewController:toViewController] when
-//  the transition is complete.
-//
 - (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext
 {
-    [self.lock lock];
     UIViewController *fromViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
     UIViewController *toViewController = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
     
@@ -59,8 +44,6 @@
     UIView *toView;
     
     // In iOS 8, the viewForKey: method was introduced to get views that the
-    // animator manipulates.  This method should be preferred over accessing
-    // the view of the fromViewController/toViewController directly.
     if ([transitionContext respondsToSelector:@selector(viewForKey:)]) {
         fromView = [transitionContext viewForKey:UITransitionContextFromViewKey];
         toView = [transitionContext viewForKey:UITransitionContextToViewKey];
@@ -71,9 +54,7 @@
     
     CGRect fromFrame = [transitionContext initialFrameForViewController:fromViewController];
     CGRect toFrame = [transitionContext finalFrameForViewController:toViewController];
-    
-    // Based on the configured targetEdge, derive a normalized vector that will
-    // be used to offset the frame of the view controllers.
+
     CGVector offset;
     if (self.targetEdge == UIRectEdgeLeft)
         offset = CGVectorMake(-1.f, 0.f);
@@ -82,16 +63,12 @@
     else
         NSAssert(NO, @"targetEdge must be one of UIRectEdgeLeft, or UIRectEdgeRight.");
     
-    // The toView starts off-screen and slides in as the fromView slides out.
     fromView.frame = fromFrame;
     toView.frame = CGRectOffset(toFrame, toFrame.size.width * offset.dx * -1,
                                 toFrame.size.height * offset.dy * -1);
-    
-    // We are responsible for adding the incoming view to the containerView.
     [containerView addSubview:toView];
     
     NSTimeInterval transitionDuration = [self transitionDuration:transitionContext];
-    
     toView.alpha = 0;
     [UIView animateWithDuration:transitionDuration animations:^{
         fromView.frame = CGRectOffset(fromFrame, fromFrame.size.width * offset.dx,
@@ -101,19 +78,8 @@
         
     } completion:^(BOOL finished) {
         BOOL wasCancelled = [transitionContext transitionWasCancelled];
-        // When we complete, tell the transition context
-        // passing along the BOOL that indicates whether the transition
-        // finished or not.
         [transitionContext completeTransition:!wasCancelled];
-        [self.lock unlock];
     }];
-}
-
-- (NSLock *)lock {
-    if (_lock == nil) {
-        _lock = NSLock.alloc.init;
-    }
-    return _lock;
 }
 
 @end

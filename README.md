@@ -7,7 +7,24 @@
 
 ## Example
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+```ruby
+
+#import <KLTabBarTransitionDelegate.h>
+
+@implementation TabBarController
+
+- (void)viewDidLoad {
+[super viewDidLoad];
+KLTabBarTransitionDelegate *delegate = KLTabBarTransitionDelegate.alloc.init;
+delegate.tabBarController = self;
+delegate.tabBarItemScaleEnable = YES;       // item缩放动画开关
+delegate.panGestureRecongizerEnable = YES;  // 页面侧滑动画开关，默认当TabBar显示时，页面才可以侧滑
+self.delegate = delegate;
+}
+
+@end
+
+```
 
 ## Requirements
 
@@ -15,22 +32,6 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 KLTarBarTransition is available through [CocoaPods](https://cocoapods.org). To install
 it, simply add the following line to your Podfile:
-
-```ruby
- 用法（How to use）：
- 
- @implementation TabBarController
- 
- - (void)viewDidLoad {
-    [super viewDidLoad];
-    KLTabBarTransitionDelegate *delegate = KLTabBarTransitionDelegate.alloc.init;
-    delegate.tabBarController = self;
-    self.delegate = delegate;
- }
- 
- @end
-
-```
 
 ```ruby
 pod 'KLTarBarTransition'
