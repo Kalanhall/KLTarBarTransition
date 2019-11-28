@@ -46,8 +46,10 @@ const char * KLTabBarTransitionControllerDelegateAssociationKey = "KLTabBarTrans
 #pragma mark Gesture Recognizer
 - (UIPanGestureRecognizer*)panGestureRecognizer
 {
-    if (_panGestureRecognizer == nil)
+    if (_panGestureRecognizer == nil) {
         _panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGestureRecognizerDidPan:)];
+        _panGestureRecognizer.enabled = NO;
+    }
     return _panGestureRecognizer;
 }
 
