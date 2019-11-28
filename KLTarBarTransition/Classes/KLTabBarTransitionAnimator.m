@@ -23,7 +23,7 @@
     self = [self init];
     if (self) {
         _targetEdge = targetEdge;
-        _transitionTime = 0.5;
+        _transitionTime = 0.3;
     }
     return self;
 }
