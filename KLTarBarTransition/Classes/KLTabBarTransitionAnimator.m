@@ -23,7 +23,7 @@
     self = [self init];
     if (self) {
         _targetEdge = targetEdge;
-        _transitionTime = 0.35;
+        _transitionTime = 0.5;
     }
     return self;
 }
@@ -69,12 +69,12 @@
     [containerView addSubview:toView];
     
     NSTimeInterval transitionDuration = [self transitionDuration:transitionContext];
-    toView.alpha = 0;
+//    toView.alpha = 0;
     [UIView animateWithDuration:transitionDuration animations:^{
         fromView.frame = CGRectOffset(fromFrame, fromFrame.size.width * offset.dx,
                                       fromFrame.size.height * offset.dy);
         toView.frame = toFrame;
-        toView.alpha = 1;
+//        toView.alpha = 1;
         
     } completion:^(BOOL finished) {
         BOOL wasCancelled = [transitionContext transitionWasCancelled];
